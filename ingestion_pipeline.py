@@ -105,9 +105,9 @@ def main():
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
 
-    # ✅ LOAD existing vector store
+    # LOAD existing vector store
     if os.path.exists(persistent_directory):
-        print("✅ Vector store already exists. Loading from disk...")
+        print(" Vector store already exists. Loading from disk...")
 
         vectorstore = Chroma(
             persist_directory=persistent_directory,
@@ -120,7 +120,7 @@ def main():
         )
         return vectorstore
 
-    # ✅ CREATE new vector store
+    #  CREATE new vector store
     print("Persistent directory does not exist. Initializing vector store...\n")
 
     documents = load_documents(docs_path)
@@ -131,10 +131,11 @@ def main():
         persist_directory=persistent_directory
     )
 
-    print("\n✅ Ingestion complete! Your documents are now ready for RAG queries.")
+    print("\n Ingestion complete! Your documents are now ready for RAG queries.")
     return vectorstore
 
 
 if __name__ == "__main__":
     main()
+
 
